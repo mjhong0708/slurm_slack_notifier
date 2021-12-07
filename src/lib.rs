@@ -140,17 +140,3 @@ pub fn get_job_dir(id: i32) -> String {
     let workdir = &workdir[8..];
     workdir.to_string()
 }
-
-#[test]
-fn test_parsing_config() {
-    let config = Config::new();
-    assert_eq!(config.username, String::from("hmj0327"));
-    assert_eq!(
-        config.slack.endpoint,
-        String::from(
-            "https://hooks.slack.com/services/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"
-        )
-    );
-    assert_eq!(config.slack.app_name, String::from("job_alarm"));
-    assert_eq!(config.slack.channel, String::from("#job_notifications"));
-}
