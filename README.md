@@ -31,11 +31,11 @@ Slurm에 올린 작업이 끝나면 slack으로 알림을 주는 프로그램
 
     ```json
     {
-       "username": "<username>",                          // 리눅스 계정 이름
+       "username": "<username>",                  // 리눅스 계정 이름
        "slack": {
-           "endpoint": "<slack webhook endpoint url>",    // 위에서 생성한 슬랙 앱의 webhook endpoint url
-           "channel": "<#channel name>",                  // 채널 이름. '#'을 포함하여 작성
-           "app_name": "<app name>"                       // 슬랙 앱 이름
+           "endpoint": "<webhook endpoint url>",  // 슬랙 앱의 webhook endpoint url
+           "channel": "<#channel name>",          // 채널 이름. '#'을 포함하여 작성
+           "app_name": "<app name>"               // 슬랙 앱 이름
        }
     }
     ```
@@ -45,3 +45,9 @@ Slurm에 올린 작업이 끝나면 slack으로 알림을 주는 프로그램
 - 일시적으로 실행: 원격 터미널을 열고 `monitorjob` 명령어를 실행한다. 터미널 연결이 종료되면 프로그램이 종료된다.
 - 반영구적으로 실행: 원격 터미널을 열고 적당한 폴더를 생성한 후 (ex. `~/monitorjob_log`) 해당 폴더에서 `nohup monitorjob > history.log`를 실행한다.
   - 종료 방법: `top` (또는 `htop`)을 실행하고 본인 계정명에서 `monitorjob` 이름으로 돌아가고 있는 프로세스 ID(pid)를 확인한 후 `kill <pid>`로 프로세스를 종료한다.
+
+## TODO
+
+- Refactoring
+- User name 자동 인식
+- 예외 핸들링 구체화
