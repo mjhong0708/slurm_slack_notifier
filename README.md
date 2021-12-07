@@ -46,6 +46,10 @@ Slurm에 올린 작업이 끝나면 slack으로 알림을 주는 프로그램
 - 반영구적으로 실행: 원격 터미널을 열고 적당한 폴더를 생성한 후 (ex. `~/monitorjob_log`) 해당 폴더에서 `nohup monitorjob > history.log`를 실행한다.
   - 종료 방법: `top` (또는 `htop`)을 실행하고 본인 계정명에서 `monitorjob` 이름으로 돌아가고 있는 프로세스 ID(pid)를 확인한 후 `kill <pid>`로 프로세스를 종료한다.
 
+- 메시지 수신 화면:
+
+![msg](https://user-images.githubusercontent.com/61532201/145027987-e4e86af3-deef-4a10-907a-318360a10ba1.png)
+
 ## TODO
 
 - Refactoring
