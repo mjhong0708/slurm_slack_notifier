@@ -3,13 +3,13 @@ use std::fs;
 use std::process::Command;
 use std::str::FromStr;
 
-#[derive(Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Config {
     pub username: String,
     pub slack: SlackConfig,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct SlackConfig {
     pub endpoint: String,
     pub app_name: String,
@@ -139,4 +139,20 @@ pub fn get_job_dir(id: i32) -> String {
     let workdir = workdir.to_string();
     let workdir = &workdir[8..];
     workdir.to_string()
+}
+
+#[test]
+fn test_slack() {
+    use slack_hook::PayloadBuilder;
+    use slack_hook::Slack;
+    let config = Config::new();
+    let slack = Slack::new(&config.slack.endpoint[..]).unwrap();
+    let p = PayloadBuilder::new()
+        .text("test message")
+        .channel(&config.slack.channel)
+        .username(&config.slack.app_name)
+        .icon_emoji(":chart_with_upwards_trend:")
+        .build()
+        .expect("failed to build payload");
+    slack.send(&p).expect("Failed to send message");
 }
