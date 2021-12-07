@@ -107,7 +107,7 @@ pub fn get_qstat_lines(user: &str) -> Vec<String> {
             .arg("-u")
             .arg(user)
             .output()
-            .expect("failed to execute process");
+            .expect("Failed to execute process");
         String::from_utf8(output.stdout).expect("Failed to convert to string")
     };
     let lines: Vec<String> = qstat
@@ -127,7 +127,7 @@ pub fn get_job_dir(id: i32) -> String {
             .arg("job")
             .arg(format!("{}", id))
             .output()
-            .expect("failed to execute process");
+            .expect("Failed to execute process");
         String::from_utf8(output.stdout).expect("Failed to convert to string")
     };
     let workdir = jobinfo
