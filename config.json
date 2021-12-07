@@ -1,0 +1,8 @@
+{
+    "username": "<username>",
+    "slack": {
+        "endpoint": "<slack webhook endpoint url>",
+        "channel": "<#channel name>",
+        "app_name": "<app name>"
+    }
+}

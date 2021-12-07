@@ -1,0 +1,10 @@
+[package]
+name = "monitorjob"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+slack-hook = "0.8.0"
+serde = "1.0"
+serde_json = "1.0"
+home = "0.5.3"
