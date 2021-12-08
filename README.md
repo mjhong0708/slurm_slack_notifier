@@ -24,7 +24,7 @@ Slurm에 올린 작업이 끝나면 slack으로 알림을 주는 프로그램
 
 [이 블로그 포스트](https://oingdaddy.tistory.com/146)를 참고하여 slack app을 만들고, 여기서 생성된 endpoint의 url을 잘 복사해놓는다.
 
-### 2. `config.yaml` 파일 작성하기
+### 2. `config.json` 파일 작성하기
 
 - `~/.config/monitorjob` 폴더를 만든다.
 - 위 폴더 안에 `config.json` 파일을 다음과 같이 작성한다.
