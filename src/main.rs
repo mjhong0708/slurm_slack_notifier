@@ -1,13 +1,13 @@
 use std::collections::HashMap;
 
 extern crate slack_hook;
-use monitorjob::{get_job_dir, get_qstat_lines, Config, Job, JobState, SlackConfig};
+use monitorjob::config::{Config, SlackConfig};
+use monitorjob::job::{get_job_dir, get_qstat_lines, Job, JobState};
 use slack_hook::{PayloadBuilder, Slack};
 use std::time::Duration;
 
 fn main() {
     let config = Config::new();
-
     // Initialize
     let lines = get_qstat_lines(&config.username);
     let mut job_table: HashMap<i32, Job> = HashMap::new();
